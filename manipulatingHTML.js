@@ -2,7 +2,7 @@
 
 
 // kreiranje novog elementa
-// appendchild dodaje node na kraj liste dece
+// appendChild() dodaje node na kraj liste dece
 let menu = document.querySelector(".menu");
 let list = document.createElement("li");
 list.innerHTML = "Contact";
@@ -18,8 +18,26 @@ menu.textContent = "Umesto liste sada imamo obican tekst!!!";
 
 
 // innerHTML je svojstvo preko kog mozemo menjati strukturu elementa dodajuci nove HTML tagove
+menu.setAttribute("class", "menu");
+menu.innerHTML = "<ul><li>Home</li><li>About</li><li>Blog</li></ul>";//resetujem stranicu na izvornu zbog daljeg rada
 
-menu.innerHTML = "<h1>" + menu.textContent + "</h1>";
+
+// after() - sluzi za dodavanje elementa nakon nekog elementa
+menu.after("Neki tekst nakon elementa .menu");
+
+
+// append() - na kraj dodaje elemente ili tekst parent node-u
+
+let el1 = document.createElement("li");
+let el2 = document.createElement("li");
+el1.innerHTML="prvi element iz append() metode";
+el2.innerHTML="drugi element iz append() metode";
+menu.append(el1,el2);
+
+// prepend() - na pocetak dodaje elemente ili tekst parent node-u
+menu.prepend(el1.innerHTML, el2.innerHTML);
+
+
 
 
 
