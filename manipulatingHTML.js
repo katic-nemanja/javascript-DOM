@@ -35,28 +35,35 @@ el2.innerHTML="drugi element iz append() metode";
 menu.append(el1,el2);
 
 // prepend() - na pocetak dodaje elemente ili tekst parent node-u
-menu.prepend(el1.innerHTML, el2.innerHTML);
+menu.prepend("prepend 1", "prepend 2");
+
+// insertAdjacentHTML(position,html element) na izabranog roditelja moze da doda:
+// - "beforebegin" pre pocetka tog roditelja zeljeni element
+// - "afterbegin" posle pocetka tog roditelja zeljeni element iliti ako je roditelj, prvo dete
+// - "beforeend" pre kraja tog roditelja zeljeni element iliti ako je roditelj, poslednje dete
+// - "afterend" posle kraja tog roditelja zeljeni element iliti van roditelja
+menu.insertAdjacentHTML("beforebegin","<p>Before begin element</p>");
+menu.insertAdjacentHTML("afterbegin","<li>After begin element</li>");
+menu.insertAdjacentHTML("beforeend","<li>Before end element</li>");
+menu.insertAdjacentHTML("afterend","<h3>Before begin element</h3>");
+
+// insertAdjacentElement na izabranog roditelja moze da doda isto kao i HTML samo sto dodaje element
+menu.insertAdjacentElement("afterend", el1);
 
 
+// replaceChild(novo dete,staro dete); - menja jedan cvor drugim
+menu.replaceChild(el1,el2);
 
+// cloneNode() je metoda kojom se klonira bilo koji element,
+// default vrednost mu je false, ali ako mu se prosledi 
+// "true" u zagradi, onda kopira cvor sa sve decom cvorovima
+let klonirani = menu.cloneNode(true);
+console.log(klonirani);
 
+// removeChild(child element) - uklanja selektovani child element iz roditeljskog containera
+menu.removeChild(menu.lastChild);
 
-let div = document.createElement("div");
-div.innerHTML = "<p>Manipulacija HTML iz Javascripta</p>";
-div.id = "title";
-div.className = "JS";
-document.body.appendChild(div);
-console.log(div);
-
-//let child = div.firstChild;
-
-let _h1 = document.createElement("h1");
-_h1.innerHTML = "<h1>Naslov</h1>";
-div.insertAdjacentElement("afterbegin", _h1);
-
-
-
-
-// div.insertAdjacentElement(0, _h1);
-
-// document.body.appendChild(div);
+// insertBefore(novi cvor, postojeci cvor) - ubacuje novi cvor pre postojeceg child cvora unutar parenta
+let insBefore = document.createElement("p");
+insBefore.textContent = "Ubacen tekst pre Elementa 1";
+menu.insertBefore(insBefore, el1);
