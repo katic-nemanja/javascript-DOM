@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: beige;
+}
+
+.user{
+    margin-top: 15px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    color: black;
+    background: linear-gradient(to right, white, red);
+}
