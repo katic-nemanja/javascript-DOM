@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Events</title>
+</head>
+
+<body>
+    <div id="container" class="main">
+        <button id="button1"
+            onclick="klik(), console.log(event.target), console.log(event.type), console.log(this), console.log(this.id)"
+            type="button">Klikni me klikni
+        </button>
+
+        <br /><br />
+
+        <button id="button2">Klikni na button 2</button>
+
+        <br /><br />
+
+        <button id="button3">Klikni na button 3</button>
+
+        <br /><br />
+
+        <button id="button4">Klikni na button 4</button>
+    </div>
+
+
+    <script src="events.js"></script>
+</body>
+
+</html>
