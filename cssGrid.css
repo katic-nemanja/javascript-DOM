@@ -1,0 +1,64 @@
+*,*::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    border: 2px solid black;
+    margin: auto;
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*  grid-template-columns: - podesava template kako ce grid da podesava kolone */
+/*  grid-template-rows: - podesava template kako ce grid da podesava redove */
+
+/* grid-template-columns: 1fr 1fr 1fr; - fr oznacava frakciju od ukupno raspolozivog prostora 1fr 1fr 1fr znaci da ce podeliti grid na 3 jednaka dela */
+/* grid-template-rows: 1fr 2fr 1fr - bice redovi podeseni na 4 dela, od toga prvi deo 1/4, drugi deo 2/4 i treci deo 1/4 */
+
+/* grid-auto-rows: 50px; ovo je  komanda koja podesava kako ce redovi biti formirani nakon ova 3 definisana u
+                         grid-template-rows: 1fr 2fr 1fr; sto znaci da ce svaki naredni biti visok 50px */
+.content{
+    width: 600px;
+    height: 100%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    border: 3px solid green;
+    grid-auto-rows: 50px;
+}
+
+
+/* grid-column-start: 1; grid-column-end: 4;  - ovo je komanda kojom se kaze gridu da se prva celija prostire od pocetka 1. celije, do pocetka 4.*/
+.a{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.b{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/*  grid-column-start: 3; ovo govori od koje celije
+    grid-column-end: 3;   ovo govori do koje celije
+    grid-row-start: 2;  ovo je set komandi koji govori na koliko redova ce neka celija da se prostire, 
+    grid-row-end: 7;    ali njoj mora da se kaze i od koje celije ce da krene da bi znala u kojoj koloni da se red merguje */
+
+.c{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 8;
+}
+
+.box{
+    padding: 20px;
+    border: 2px solid orangered;
+}
